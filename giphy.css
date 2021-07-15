@@ -1,0 +1,52 @@
+
+
+body {
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 4rem;
+}
+
+form {
+    position: relative;
+    display: inline;
+}
+
+#buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    border-radius: 10px;
+    height: 25px;
+}
+
+#gif-container {
+    padding: 40px;
+}
+
+img {
+    margin: 10px;
+}
+
+button {
+    border-radius: 10px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    height: 100%;
+    color: white;
+}
+
+#search-button {
+    background-color: green;
+}
+
+#clear {
+background-color: crimson;
+}
