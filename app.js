@@ -14,11 +14,18 @@ async function getGIF(descrip) {
         const url = "http://api.giphy.com/v1/gifs/search"; // basic URL for GIPHY search
         // submit get request with query string params of gif to search for, and API key
         const res = await axios.get(url, {params: {q : descrip, api_key}}); 
-        const rand = Math.floor(Math.random() * res.data.data.length); // generate random number within length of returned gif list
-        const imgSrc = (res.data.data[rand].images.original.url); // select random gif, get its giphy URL
-        $container.append(`<img src=${imgSrc}>`); // make a new image with source equal to the gif URL, then append to containing div
+
+        const imageArray = res.data.data;
+
+        if(imageArray) {
+            const rand = Math.floor(Math.random() * res.data.data.length); // generate random number within length of returned gif list
+            const imgSrc = (res.data.data[rand].images.original.url); // select random gif, get its giphy URL
+            $container.append(`<img src=${imgSrc}>`); // make a new image with source equal to the gif URL, then append to containing div
+        } else {
+            alert("No GIFs found that match your search!");
+        }
     } catch(e) {
-        alert(`No gifs fitting the description of ${descrip} could be found.`); // if no GIFs found, alert the user
+        alert("A problem occured " + e.message); // if no GIFs found, alert the user
     }
 }
 
